@@ -1,0 +1,3 @@
+import axios  from "axios";
+
+axios.defaults.headers.common["Authorization"] = "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2Mjc0NWY2MjdmZTQ1NDcwYWNhZDc4M2EiLCJpZCI6IjYyNzQ1ZjYyN2ZlNDU0NzBhY2FkNzgzYSIsImlhdCI6MTY1OTQxNzY2MiwiZXhwIjoxNjU5NDE4NTYyfQ.-dRJYXROqx2e3k6sl1-vEp6hsidNkihJ1D4QlJOSXKU";

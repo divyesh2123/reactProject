@@ -14,10 +14,13 @@ import UserData from './UserData';
 import UserPlaceHolder from './UserPlaceHolder';
 import Tours from './Tours';
 
+import MySecure from './MySecure';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Tours />
+    <MySecure />
   </React.StrictMode>
 );
 
