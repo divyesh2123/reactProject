@@ -15,12 +15,13 @@ import UserPlaceHolder from './UserPlaceHolder';
 import Tours from './Tours';
 
 import MySecure from './MySecure';
+import FormData from './FormData';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MySecure />
+    <FormData />
   </React.StrictMode>
 );
 
