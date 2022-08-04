@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 export default function FormData() {
@@ -18,8 +19,16 @@ export default function FormData() {
 
     )
 
+    const [error,setError]= useState({
+        title: "",
+        firstName : "",
+        lastName: ""
+       
+    });
+
     const myData = (e)=> {
 
+        
         
         if(e.target.type =="checkbox")
         {
@@ -28,16 +37,91 @@ export default function FormData() {
 
          else
          {
-             setData({...data,[e.target.name]: e.target.value});
+
+           var message = checkValidation(e.target.name,e.target.value);
+
+           setError({...error,[e.target.name]: message});
+           setData({...data,[e.target.name]: e.target.value});
 
          }       
         
+    }
+    
+    var checkValidation = (key,value) => {
+
+        switch(key)
+        {
+
+                case "title" :
+
+                    if(!value)
+                    {
+                        return "title is required";
+                    }
+                    break;
+
+                case  "firstName":
+
+                    if(!value)
+                    {
+
+                        return "firstName is required";
+
+                    }
+
+                    break;
+                 case "lastName" :
+
+                 if(!value)
+                 {
+                    return "lastName is required";
+                 }
+
+                 break;
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+
+
+        }
+
     }
 
     const mySubmit=(e)=> {
         console.log(e)
         e.preventDefault();
         console.log(data);
+
+        var errorObject = {};
+
+        Object.keys(error).map((element)=> {
+           
+          let message =  checkValidation(element,data[element])
+
+          errorObject[element]= message;
+       
+            
+        });
+
+        setError(errorObject);
+
+        console.log(error);
+
+        // axios.post("http://localhost:4000/accounts/register",data).then(y=> {
+
+        // console.log(y);
+        // })
     }
 
 
@@ -46,14 +130,18 @@ export default function FormData() {
         <form onSubmit={mySubmit }  >
 
         <label>title</label>
-            <input type="text" name='title' onChange={myData} />
-
+            <input type="text" name='title' onChange={myData}  
+            value={data.title}  onBlur={myData}/>
+             <span>{error?.title}</span>
             <label>FirstName</label>
             <input type="text" name='firstName' onChange={myData} />
+
+            <span>{error?.firstName}</span>
 
             <label>LastName</label>
             <input type="text" name='lastName' onChange={myData} />
 
+            <span>{error?.lastName}</span>
 
             <label>email</label>
             <input type="text" name='email' onChange={myData} />
