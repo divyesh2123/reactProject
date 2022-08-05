@@ -16,12 +16,13 @@ import Tours from './Tours';
 
 import MySecure from './MySecure';
 import FormData from './FormData';
+import FullFormFunction from './FullFormFunction';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <FormData />
+    <FullFormFunction />
   </React.StrictMode>
 );
 
