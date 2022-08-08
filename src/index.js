@@ -17,12 +17,13 @@ import Tours from './Tours';
 import MySecure from './MySecure';
 import FormData from './FormData';
 import FullFormFunction from './FullFormFunction';
+import EmployeeInfo from './EmployeeInfo';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <FullFormFunction />
+    <EmployeeInfo />
   </React.StrictMode>
 );
 

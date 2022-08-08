@@ -63,7 +63,7 @@ export default function FullFormFunction() {
         var regex = /[0-9]|\./;
         if (!regex.test(key)) {
           theEvent.returnValue = false;
-          if (theEvent.preventDefault) theEvent.preventDefault();
+          theEvent.preventDefault();
         }
       }
     
@@ -96,8 +96,9 @@ export default function FullFormFunction() {
             ...form,
             [name]: value
           };
-        }
 
+        }
+        //state for value
 
         if (!Object.keys(formErrors).includes(name)) return;
         
@@ -116,7 +117,8 @@ export default function FullFormFunction() {
         } else {
           const errorMsg = validateField(
             name,
-            name === "language" ? state.form["language"] : value
+            name === "language" ?
+             state.form["language"] : value
           );
           formErrorsObj = { ...formErrors, [name]: errorMsg };
         }
@@ -186,9 +188,12 @@ export default function FullFormFunction() {
         const { form, formErrors } = state;
         const errorObj = validateForm(form, formErrors, validateField);
         if (Object.keys(errorObj).length !== 0) {
-          setState({...state, formErrors: { ...formErrors, ...errorObj } });
+          setState({...state, formErrors:  errorObj  });
           return false;
         }
+
+        //database
+        //api code
         console.log("Data: ", form);
       };
 
@@ -210,6 +215,7 @@ export default function FullFormFunction() {
                   onChange={handleChange}
                   onBlur={handleChange}
                 />
+           
                 {state.formErrors.name && (
                   <span className="err">{state.formErrors.name}</span>
                 )}
@@ -274,7 +280,8 @@ export default function FullFormFunction() {
                           type="checkbox"
                           name="language"
                           value={x.value}
-                          checked={state.form.language.includes(x.value)}
+                          checked=
+                          {state.form.language.includes(x.value)}
                           onChange={handleChange}
                         />{" "}
                         {x.label}
@@ -325,7 +332,7 @@ export default function FullFormFunction() {
                       type="radio"
                       name="gender"
                       value="female"
-                      checked={state.form.gender == "female"}
+                      checked={state.form.gender === "female"}
                       onChange={handleChange}
                     />{" "}
                     Female
