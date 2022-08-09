@@ -1,13 +1,40 @@
+import {Field, Form, Formik,ErrorMessage} from 'formik';
 import React from 'react'
-import {Field, Form, Formik} from 'formik';
 
-export default function EmployeeInfo() {
+
+export default function FormWithValidation() {
+
+
+  const  validateEmployee = (data)=> {
+
+        console.log(data)
+
+        const errors = {};
+
+        if(!data.firstName)
+        {
+            errors.firstName = 'Please Enter Name'
+
+        }
+
+
+        return errors;
+
+    }
+
+    const submitHandle = (data)=> {
+
+        console.log(data);
+    }
+
+
+
 
 
   return (
     <div>
 
-        <Formik
+<Formik
             initialValues={{
 
                 firstName : "",
@@ -18,7 +45,12 @@ export default function EmployeeInfo() {
 
             }}
 
+            validate= {
+                validateEmployee }
 
+
+
+                
 
             onSubmit={ (values) => {
                 
@@ -35,13 +67,31 @@ export default function EmployeeInfo() {
 
                 <label>FirstName</label>
                 <Field id="firstName" name="firstName"  type="text"></Field>
+                <ErrorMessage
+                      name="firstName"
+                      component="div"
+                      className="text-danger"
+                    />
 
                 <label>lastName</label>
                 <Field id="lastName" name="lastName"  type="text"></Field>
 
+                <ErrorMessage
+                      name="lastName"
+                      component="div"
+                      className="text-danger"
+                    />
 
                 <label>email</label>
                 <Field id="email" name="email"  type="email"></Field>
+
+                
+                <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="text-danger"
+                    />
+
 
            <div role="group" aria-labelledby="checkbox-group">
             <label>

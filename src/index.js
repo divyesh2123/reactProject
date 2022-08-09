@@ -18,12 +18,14 @@ import MySecure from './MySecure';
 import FormData from './FormData';
 import FullFormFunction from './FullFormFunction';
 import EmployeeInfo from './EmployeeInfo';
+import FormWithValidation from './FormWithValidation';
+import AnotherForm from './AnotherForm';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <EmployeeInfo />
+    <AnotherForm />
   </React.StrictMode>
 );
 
