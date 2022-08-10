@@ -27,7 +27,7 @@ import DynamicForm from './DynamicForm';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <DynamicForm />
+    <SimpleReactFileUpload />
   </React.StrictMode>
 );
 
