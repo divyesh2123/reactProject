@@ -20,12 +20,14 @@ import FullFormFunction from './FullFormFunction';
 import EmployeeInfo from './EmployeeInfo';
 import FormWithValidation from './FormWithValidation';
 import AnotherForm from './AnotherForm';
+import MyValidation from './MyValidation';
+import DynamicForm from './DynamicForm';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AnotherForm />
+    <DynamicForm />
   </React.StrictMode>
 );
 
