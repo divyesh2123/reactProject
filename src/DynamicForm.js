@@ -24,6 +24,8 @@ export default function DynamicForm() {
 
     
     function onChangeTickets(e, field, values, setValues) {
+
+        console.log(field);
         // update dynamic form
         const tickets = [...values.tickets];
         const numberOfTickets = e.target.value || 0;
@@ -33,11 +35,12 @@ export default function DynamicForm() {
                 tickets.push({ name: '', email: '' });
             }
         } else {
+ 
             for (let i = previousNumber; i >= numberOfTickets; i--) {
                 tickets.splice(i, 1);
             }
         }
-        setValues({ ...values, tickets , numberOfTickets: e.target.value });
+        setValues({ ...values,  tickets , numberOfTickets: e.target.value });
 
         // call formik onChange method
        // field.onChange(e);
@@ -50,7 +53,8 @@ export default function DynamicForm() {
   return (
     <div>DynamicForm
 
-<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+<Formik initialValues={initialValues} validationSchema={validationSchema} 
+onSubmit={onSubmit}>
             {({ errors, values, touched, setValues }) => (
                 <Form>
                     <div className="card m-3">
@@ -63,11 +67,15 @@ export default function DynamicForm() {
                                     <Field name="numberOfTickets"  >
                                     {({ field }) => (
                                         <select {...field}
-                                         className={'form-control' + (errors.numberOfTickets && touched.numberOfTickets ? ' is-invalid' : '')} 
+                                         className={'form-control' + 
+                                         (errors.numberOfTickets &&
+                                             touched.numberOfTickets ? 
+                                             ' is-invalid' : '')} 
                                         onChange={e => onChangeTickets(e, field, values, setValues)}>
                                             <option value=""></option>
                                             {[1,2,3,4,5,6,7,8,9,10].map(i => 
                                                 <option key={i} value={i}>{i}</option>
+                                                
                                             )}
                                         </select>
                                     )}
@@ -87,7 +95,9 @@ export default function DynamicForm() {
                                         <div className="form-row">
                                             <div className="form-group col-6">
                                                 <label>Name</label>
-                                                <Field name={`mytickets.${i}.name`} type="text" className={'form-control' + (ticketErrors.name && ticketTouched.name ? ' is-invalid' : '' )} />
+                                                <Field name={`mytickets.${i}.name`} type="text"
+                                                 className={'form-control' + (ticketErrors.name && 
+                                                 ticketTouched.name ? ' is-invalid' : '' )} />
                                                 <ErrorMessage name={`mytickets.${i}.name`} component="div" className="invalid-feedback" />
                                             </div>
                                             <div className="form-group col-6">
