@@ -22,12 +22,12 @@ import FormWithValidation from './FormWithValidation';
 import AnotherForm from './AnotherForm';
 import MyValidation from './MyValidation';
 import DynamicForm from './DynamicForm';
-import SimpleReactFileUpload from './SimpleReactFileUpload';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <SimpleReactFileUpload />
+ <DynamicForm/>
   </React.StrictMode>
 );
 
