@@ -22,9 +22,9 @@ export default class SimpleReactFileUpload extends React.Component {
     this.setState({file:e.target.files[0]})
   }
   fileUpload(file){
-    const url = 'http://www.infintrixindia.com/FlexAlignApi/FlexAlign.svc/UploadPhotos';
+    const url = 'http://localhost:8080/upload';
     const formData = new FormData();
-    formData.append('image',this.state.file)
+    formData.append('file',this.state.file)
     const config = {
         headers: {
             'content-type': 'multipart/form-data'

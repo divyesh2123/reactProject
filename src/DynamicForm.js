@@ -23,9 +23,9 @@ export default function DynamicForm() {
     });
 
     
-    function onChangeTickets(e, field, values, setValues) {
+    function onChangeTickets(e, field, values, setValues,touched) {
 
-        console.log(field);
+        console.log(touched.numberOfTickets);
         // update dynamic form
         const tickets = [...values.tickets];
         const numberOfTickets = e.target.value || 0;
@@ -40,7 +40,7 @@ export default function DynamicForm() {
                 tickets.splice(i, 1);
             }
         }
-        setValues({ ...values,  tickets , numberOfTickets: e.target.value });
+        setValues({ ...values,  tickets : tickets , numberOfTickets: e.target.value });
 
         // call formik onChange method
        // field.onChange(e);
@@ -53,7 +53,8 @@ export default function DynamicForm() {
   return (
     <div>DynamicForm
 
-<Formik initialValues={initialValues} validationSchema={validationSchema} 
+<Formik initialValues={initialValues} 
+validationSchema={validationSchema} 
 onSubmit={onSubmit}>
             {({ errors, values, touched, setValues }) => (
                 <Form>
@@ -64,14 +65,14 @@ onSubmit={onSubmit}>
                             <div className="form-row">
                                 <div className="form-group">
                                     <label>Number of Tickets</label>
-                                    <Field name="numberOfTickets"  >
+                                    <Field name="numberOfTickets"  component="select">
                                     {({ field }) => (
                                         <select {...field}
                                          className={'form-control' + 
                                          (errors.numberOfTickets &&
                                              touched.numberOfTickets ? 
                                              ' is-invalid' : '')} 
-                                        onChange={e => onChangeTickets(e, field, values, setValues)}>
+                                        onChange={e => onChangeTickets(e, field, values, setValues,touched)}>
                                             <option value=""></option>
                                             {[1,2,3,4,5,6,7,8,9,10].map(i => 
                                                 <option key={i} value={i}>{i}</option>
@@ -84,6 +85,11 @@ onSubmit={onSubmit}>
                                 </div>
                             </div>
                         </div>
+
+                        
+            <h5>Dirty: {JSON.stringify(touched)}</h5>
+           
+
                         <FieldArray name="tickets">
                         {() => (values.tickets.map((ticket, i) => {
                             const ticketErrors = errors.tickets?.length && errors.tickets[i] || {};

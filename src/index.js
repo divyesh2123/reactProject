@@ -22,12 +22,17 @@ import FormWithValidation from './FormWithValidation';
 import AnotherForm from './AnotherForm';
 import MyValidation from './MyValidation';
 import DynamicForm from './DynamicForm';
+import FormFunctio from './FormFunctio';
+import Header from './Header';
+import SimpleFileUpload from './SimpleFileUpload';
+import EcommerceRegistration from './EcommerceRegistration';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
- <DynamicForm/>
+
+ <EcommerceRegistration/>
   </React.StrictMode>
 );
 
