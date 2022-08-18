@@ -45,7 +45,7 @@ export default function EcommerceRegistration() {
         axios.post("http://localhost:8002/api/auth/register",formData).then(y=> {
             
         console.log(y);
-        toast(y.data.mesaage)
+       
         })
     }
 
