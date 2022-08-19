@@ -30,13 +30,26 @@ import FormCustom from './Form';
 import { formData } from './MyJsonData';
 import Test from './Test';
 import FormMyData from './FormMyData';
+import MyButton from './MyButton';
+import Container from './Container';
+import MyHeader from './MyHeader';
+import MyFooter from './MyFooter';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-    <FormMyData formData={formData} /> 
+     <FormMyData formData={formData} /> 
+    {/* <Container>
+
+     <MyHeader></MyHeader>
+     <MyFooter></MyFooter> */}
+    {/* </Container> */}
+
+
+    {/* <App/> */}
    {/* <Test/> */}
   </React.StrictMode>
 );
