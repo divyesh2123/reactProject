@@ -55,7 +55,8 @@ export default function FormMyData({formData}) {
   const navigatePages = (direction) => () => {
     const findNextPage = (page) => {
       const upcomingPageData = formData[page];
-      if (upcomingPageData.conditional && upcomingPageData.conditional.field) {
+      if (upcomingPageData.conditional &&
+         upcomingPageData.conditional.field) {
         // we're going to a conditional page, make sure it's the right one
         const segments = upcomingPageData.conditional.field.split("_");
         const fieldId = segments[segments.length - 1];
