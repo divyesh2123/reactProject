@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 
 export default function EcommerceRegistration() {
 
@@ -44,8 +45,12 @@ export default function EcommerceRegistration() {
 
         axios.post("http://localhost:8002/api/auth/register",formData).then(y=> {
             
-        console.log(y);
+            toast(y.data.message)
+            console.log(y);
        
+        }).catch(y=> {
+            console.log(y);
+            toast(y.response.data.message);
         })
     }
 

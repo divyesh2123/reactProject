@@ -35,18 +35,27 @@ import Container from './Container';
 import MyHeader from './MyHeader';
 import MyFooter from './MyFooter';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { ToastContainer } from 'react-toastify';
+import MyData from './MyData';
+import MyHookExample from './MyHookExample';
+import MyExampleReducer from './MyExampleReducer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-     <FormMyData formData={formData} /> 
+     {/* <FormMyData formData={formData} />  */}
     {/* <Container>
 
      <MyHeader></MyHeader>
      <MyFooter></MyFooter> */}
     {/* </Container> */}
+    <ToastContainer/>
+
+    <MyExampleReducer/>
+
+   
+    
 
 
     {/* <App/> */}
