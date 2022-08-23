@@ -2,7 +2,7 @@ import React, { useReducer, useState } from 'react'
 
 export default function MyExampleReducer() {
 
-    const myState = ["test","Test1"];
+    const myState = [];
 
     const myReducer = (state,action)=> {
 
@@ -47,7 +47,7 @@ export default function MyExampleReducer() {
 
     const myChange = (e)=> {
 
-        setInput(e.target.value);
+        setInput({...input,[e.target.name] : e.target.value});
 
     }
 
@@ -65,7 +65,7 @@ export default function MyExampleReducer() {
         }
     }
    const [data,setData]  = useReducer(myReducer, []);
-   const [input,setInput] = useState('');
+   const [input,setInput] = useState({});
    const [index,setIndex] = useState(-1);
 
    const myDelete = (index)=> {
@@ -86,15 +86,21 @@ export default function MyExampleReducer() {
 
             <input type="text"  name='item'
             
-                value={input}
+                value={input.item}
             onChange={myChange}/>
+
+<input type="text"  name='item1'
+            
+            value={input.item1}
+        onChange={myChange}/>
 
             <button onClick={mySave}>Save</button>
 
             {
                     data.map((element,index)=> {
 
-                         return (<div>{element} 
+                         return (<div>{element.item}
+                         {element.item1} 
                          
                                 <button onClick={()=> {
                                         myDelete(index)

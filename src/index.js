@@ -39,6 +39,7 @@ import { ToastContainer } from 'react-toastify';
 import MyData from './MyData';
 import MyHookExample from './MyHookExample';
 import MyExampleReducer from './MyExampleReducer';
+import EmployeeData from './EmployeeData';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -52,7 +53,7 @@ root.render(
     {/* </Container> */}
     <ToastContainer/>
 
-    <MyExampleReducer/>
+    <EmployeeData/>
 
    
     
