@@ -40,6 +40,7 @@ import MyData from './MyData';
 import MyHookExample from './MyHookExample';
 import MyExampleReducer from './MyExampleReducer';
 import EmployeeData from './EmployeeData';
+import MyDataEmp from './MyDataEmp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -53,7 +54,7 @@ root.render(
     {/* </Container> */}
     <ToastContainer/>
 
-    <EmployeeData/>
+    <MyDataEmp/>
 
    
     

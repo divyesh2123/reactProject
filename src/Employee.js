@@ -2,7 +2,7 @@ import React from 'react'
 
  function Employee(data) {
 
-    console.log(data);
+  //  console.log(data);
   return (
     <div>Employee</div>
   )
@@ -16,7 +16,7 @@ export default React.memo(Employee,(prev,current)=> {
 
     if(prev.data.length == current.data.length)
     {
-        return false;
+        return true;
     }
 
 });

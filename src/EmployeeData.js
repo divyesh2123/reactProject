@@ -22,7 +22,7 @@ export default function EmployeeData() {
     }
   return (
     <div>
-        <Employee  data= {{data}} mydelete ={mydelete}>
+        <Employee  data= {{data}} >
 
         </Employee>
 
@@ -32,7 +32,7 @@ export default function EmployeeData() {
 
         <button onClick={manageData}>Save</button>
 
-        <MyDisplayInformation text="This is the information This is the infromation This is the informnation This is the information"/>
+         <MyDisplayInformation text="This is the information This is the infromation This is the informnation This is the information"/>
 
 
     </div>
