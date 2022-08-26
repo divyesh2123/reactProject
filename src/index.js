@@ -37,14 +37,26 @@ import MyFooter from './MyFooter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer } from 'react-toastify';
 import MyData from './MyData';
+import { Provider } from 'react-redux'
 import MyHookExample from './MyHookExample';
 import MyExampleReducer from './MyExampleReducer';
 import EmployeeData from './EmployeeData';
 import MyDataEmp from './MyDataEmp';
+import store from './store';
+import CounterR from './CounterR';
+import Product from './Product';
+import ProductItem from './ProductItem';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+
+    <Provider store={store}>
+
+    <Product></Product>
+    <ProductItem></ProductItem>
+
+    </Provider>
 
      {/* <FormMyData formData={formData} />  */}
     {/* <Container>
@@ -52,9 +64,11 @@ root.render(
      <MyHeader></MyHeader>
      <MyFooter></MyFooter> */}
     {/* </Container> */}
-    <ToastContainer/>
+    {/* <ToastContainer/>
 
-    <MyDataEmp/>
+    <MyDataEmp/> */}
+
+    <EmployeeData/>
 
    
     

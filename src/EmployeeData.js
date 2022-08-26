@@ -10,10 +10,18 @@ export default function EmployeeData() {
 
     const [data,setData]= useState([]);
 
+  
+
+    const deleteItem = useCallback(() => {
+     //code for delete an item
+     //data
+     //imput
+    },[data]);
+
     const manageData = ()=> {
 
-        setData([...data, name]);
-    }
+      setData([...data, name]);
+  }
 
 
     
@@ -22,17 +30,19 @@ export default function EmployeeData() {
     }
   return (
     <div>
-        <Employee  data= {{data}} >
-
-        </Employee>
-
+       
         <input type="text"  value={name} onChange={(e)=> {
             setName(e.target.value)
         }}/>
 
+<Employee  data= {data}  myDelete = {deleteItem}>
+
+</Employee>
+
+
         <button onClick={manageData}>Save</button>
 
-         <MyDisplayInformation text="This is the information This is the infromation This is the informnation This is the information"/>
+     
 
 
     </div>
