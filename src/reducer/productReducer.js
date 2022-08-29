@@ -1,4 +1,4 @@
-import { GetData } from "../cons"
+import { AddToCart, GetData } from "../cons"
 
 const initialState = {
 
@@ -13,22 +13,51 @@ export default (state = initialState, { type, payload }) => {
   case GetData:
     return { ...state, items : payload }
 
-  case AddtoCart:
 
-  let myobje = [];
+   case AddToCart:
 
-  if(state.cart.length == 0)
-  {
+     let myCart =  [...state.cart];
 
-    myobje.push(payload);
-  }
-  else
-  {
-    state.cart
+    if(myCart.length ==0)
+    {
+        myCart.push({...payload, count :1});
+    }
+    else
+    {
+      var checkProductExist =  myCart.filter((data,index)=> {
 
-  }
+        return data.id == payload.id;
+      })
+        if(checkProductExist.length > 0)
+        {
+            var myArray = myCart.map((elemment)=>{
 
-  return {...state, currentSelectItem: payload}
+              if(elemment.id == payload.id)
+              {
+                return {...elemment, count : elemment.count +1}
+              }
+              else
+              {
+                return elemment;
+              }
+
+            });
+
+            return {...state, cart : myArray};
+
+        }
+        else
+        {
+          myCart.push({...payload, count :1});
+
+        }
+
+    }
+
+    return {...state, cart : myCart };
+
+
+  
   default:
     return state
   }

@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetProductData } from './action';
 import { GetData } from './cons';
+import ProductItem  from './ProductItem';
 
 export default function Product() {
 
@@ -20,6 +21,10 @@ export default function Product() {
     },[])
 
   return (
-    <div>Product</div>
+    <div>
+
+
+<ProductItem></ProductItem>
+    </div>
   )
 }

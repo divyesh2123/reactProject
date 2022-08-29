@@ -38,7 +38,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer } from 'react-toastify';
 import MyData from './MyData';
 import { Provider } from 'react-redux'
-import MyHookExample from './MyHookExample';
+
 import MyExampleReducer from './MyExampleReducer';
 import EmployeeData from './EmployeeData';
 import MyDataEmp from './MyDataEmp';
@@ -54,7 +54,7 @@ root.render(
     <Provider store={store}>
 
     <Product></Product>
-    <ProductItem></ProductItem>
+  
 
     </Provider>
 
