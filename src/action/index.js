@@ -1,4 +1,5 @@
-import { Decrement, GetData, Increment, AddToCart } from "../cons";
+import axios from "axios";
+import { Decrement, GetData, Increment, AddToCart, GetUser } from "../cons";
 
 export const IncrementAction = () => ({
   type: Increment,
@@ -20,7 +21,9 @@ export const DecrementAction = () => ({
     type: AddToCart,
     payload
   })
+
   
+
 
 
   

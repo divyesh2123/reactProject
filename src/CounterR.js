@@ -1,22 +1,31 @@
 import React, { useReducer } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { IncrementAction } from './action';
+ import mapDispatchToProps from './cons/MyCon';
 
-export default function CounterR() {
- const counter = useSelector(u=>u);
+const myStateToProps = (state)=> {
 
-const myDis = useDispatch();
+  return {
+    counter : state.counter
+  }
+}
+ function CounterR(data) {
+
+
 
  const myChange = ()=> {
 
-    myDis(IncrementAction())
+   data.increment();
  }
 
- console.log(counter);
+ console.log(data.counter);
   return (
-    <div>{counter}
+    <div>{data.counter}
     
         <button onClick={myChange}>Increment</button>
     </div>
   )
 }
+
+
+export default connect(myStateToProps,mapDispatchToProps)(CounterR);

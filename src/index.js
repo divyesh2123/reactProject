@@ -42,18 +42,24 @@ import { Provider } from 'react-redux'
 import MyExampleReducer from './MyExampleReducer';
 import EmployeeData from './EmployeeData';
 import MyDataEmp from './MyDataEmp';
-import store from './store';
+import store1 from './store';
+import storeSlice from './store/storeSlice';
 import CounterR from './CounterR';
 import Product from './Product';
 import ProductItem from './ProductItem';
+import MyUser from './MyUser';
+import MyTestReducer from './MyTestReducer';
+import MyTestReducer1 from './MyTestReducer1';
+import MyCounterSlice from './MyCounterSlice';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-    <Provider store={store}>
+    <Provider store={storeSlice}>
 
-    <Product></Product>
+      <MyCounterSlice></MyCounterSlice>
   
 
     </Provider>
