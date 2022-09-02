@@ -1,6 +1,8 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
+import {PostUserData} from './action/ecommerceAction';
+import {useSelector,useDispatch} from 'react-redux';
 
 export default function EcommerceRegistration() {
 
@@ -16,7 +18,25 @@ export default function EcommerceRegistration() {
         companyName : "",
         image : ""
 
-    })
+    });
+
+    const dataState = useSelector(u=>u.ecommerce);
+
+    const myDis = useDispatch();
+
+    console.log(dataState);
+
+    useEffect(()=> {
+
+        if(dataState.isSucc)
+        {
+
+            toast("Save data");
+
+        }   
+
+    },[dataState])
+    
 
     const changSet = (e)=> {
 
@@ -41,17 +61,30 @@ export default function EcommerceRegistration() {
         formData.append("companyName",data.companyName);
         formData.append("image",data.image);
 
-        
 
-        axios.post("http://localhost:8002/api/auth/register",formData).then(y=> {
+        myDis(PostUserData(formData))
+
+        // toast(y.data.message)
+
+        if(dataState.isSucc)
+        {
+
+            toast("Save data");
+
+        }   
+
+
+        // axios.post("http://localhost:8002/api/auth/register",formData).then(y=> {
             
-            toast(y.data.message)
-            console.log(y);
+        //     toast(y.data.message)
+        //     console.log(y);
        
-        }).catch(y=> {
-            console.log(y);
-            toast(y.response.data.message);
-        })
+        // }).catch(y=> {
+        //     console.log(y);
+        //     toast(y.response.data.message);
+        // })
+
+
     }
 
 

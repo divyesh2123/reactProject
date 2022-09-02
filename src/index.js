@@ -57,9 +57,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-    <Provider store={storeSlice}>
+<ToastContainer/>
+    <Provider store={store1}>
 
-      <MyCounterSlice></MyCounterSlice>
+      {/* <MyCounterSlice></MyCounterSlice> */}
+      <EcommerceRegistration></EcommerceRegistration>
   
 
     </Provider>
