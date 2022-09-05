@@ -51,19 +51,33 @@ import MyUser from './MyUser';
 import MyTestReducer from './MyTestReducer';
 import MyTestReducer1 from './MyTestReducer1';
 import MyCounterSlice from './MyCounterSlice';
+import ErrorBoundary from './ErrorBoundary';
+import BuggyCounter from './BuggyCounter';
+import MyCounterSaga from './MyCounterSaga';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
+
 <ToastContainer/>
+
+
     <Provider store={store1}>
 
-      {/* <MyCounterSlice></MyCounterSlice> */}
-      <EcommerceRegistration></EcommerceRegistration>
-  
+      <ErrorBoundary>
 
+      <BuggyCounter/>
+
+      
+
+      </ErrorBoundary>
+
+      {/* <MyCounterSlice></MyCounterSlice> */}
+      {/* <EcommerceRegistration></EcommerceRegistration> */}
+  
+       <MyCounterSaga></MyCounterSaga>
     </Provider>
 
      {/* <FormMyData formData={formData} />  */}
