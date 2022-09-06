@@ -38,7 +38,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer } from 'react-toastify';
 import MyData from './MyData';
 import { Provider } from 'react-redux'
-
+import ErrorFallback from './ErrorFallback';
 import MyExampleReducer from './MyExampleReducer';
 import EmployeeData from './EmployeeData';
 import MyDataEmp from './MyDataEmp';
@@ -51,11 +51,21 @@ import MyUser from './MyUser';
 import MyTestReducer from './MyTestReducer';
 import MyTestReducer1 from './MyTestReducer1';
 import MyCounterSlice from './MyCounterSlice';
-import ErrorBoundary from './ErrorBoundary';
+
 import BuggyCounter from './BuggyCounter';
 import MyCounterSaga from './MyCounterSaga';
+import * as Sentry from "@sentry/react";
+import ErrorBoundary from "react-error-boundary";
+import MyUserSaga from './MyUserSaga';
 
+Sentry.init({
+  dsn: "https://99ae3baf2c954c4cbd4ea9162cb74854@o1196007.ingest.sentry.io/6319187",
+ 
 
+  // We recommend adjusting this value in production, or using tracesSampler
+  // for finer control
+  tracesSampleRate: 1.0,
+});
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -63,21 +73,26 @@ root.render(
 
 <ToastContainer/>
 
-
-    <Provider store={store1}>
-
-      <ErrorBoundary>
+ {/* <ErrorBoundary FallbackComponent={ErrorFallback}>
 
       <BuggyCounter/>
 
       
 
-      </ErrorBoundary>
+      </ErrorBoundary> */}
+
+    
+    <Provider store={store1}>
+
+    <MyUserSaga/>
+
+
+     
 
       {/* <MyCounterSlice></MyCounterSlice> */}
       {/* <EcommerceRegistration></EcommerceRegistration> */}
-  
-       <MyCounterSaga></MyCounterSaga>
+{/*   
+       <MyCounterSaga></MyCounterSaga> */}
     </Provider>
 
      {/* <FormMyData formData={formData} />  */}
@@ -90,7 +105,7 @@ root.render(
 
     <MyDataEmp/> */}
 
-    <EmployeeData/>
+    {/* <EmployeeData/> */}
 
    
     

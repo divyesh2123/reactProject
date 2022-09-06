@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import * as Sentry from "@sentry/react";
 
 export default class ErrorBoundary extends Component {
   
@@ -14,10 +15,11 @@ export default class ErrorBoundary extends Component {
       } 
       
       componentDidCatch(error, info) {  
-        // It will catch error in any component below. We can also log the error to an error reporting service.  
-      //  logErrorToMyService(error, info); 
-        // it will store you error log
-
+     
+        Sentry.withScope(scope => {
+          
+          Sentry.captureException(error);
+        });
       } 
 
   render() {

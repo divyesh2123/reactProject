@@ -6,13 +6,15 @@ import product from '../reducer/productReducer';
 
 import ecommerce from '../reducer/ecommerceReducer'
 
+import userReducer from '../reducer/userReducer'
 
 const rootReducer = combineReducers({
 
     counter : counter,
     product :product,
     myuserReducer: myuserReducer,
-    ecommerce: ecommerce
+    ecommerce: ecommerce,
+    userInfo: userReducer
 })
 
 
