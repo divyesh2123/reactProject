@@ -55,8 +55,9 @@ import MyCounterSlice from './MyCounterSlice';
 import BuggyCounter from './BuggyCounter';
 import MyCounterSaga from './MyCounterSaga';
 import * as Sentry from "@sentry/react";
-import ErrorBoundary from "react-error-boundary";
+import {ErrorBoundary} from "react-error-boundary";
 import MyUserSaga from './MyUserSaga';
+import UserPost from './UserPost';
 
 Sentry.init({
   dsn: "https://99ae3baf2c954c4cbd4ea9162cb74854@o1196007.ingest.sentry.io/6319187",
@@ -73,18 +74,25 @@ root.render(
 
 <ToastContainer/>
 
- {/* <ErrorBoundary FallbackComponent={ErrorFallback}>
+  <ErrorBoundary  fallbackRender =  {({error, resetErrorBoundary, componentStack}) => (
+          <div>
+          <h1>An error occurred: {error.message}</h1>
+          <button onClick={resetErrorBoundary}>Try again</button>
+        </div>
+      )}>
 
       <BuggyCounter/>
 
       
 
-      </ErrorBoundary> */}
+      </ErrorBoundary> 
 
     
-    <Provider store={store1}>
+    <Provider store={storeSlice}>
 
     <MyUserSaga/>
+
+    <UserPost/>
 
 
      
