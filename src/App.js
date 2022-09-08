@@ -6,17 +6,35 @@ import { useState } from 'react';
 import Mylevel4 from './Mylevel4';
 import SimpleReactFileUpload from './FileUpload';
 import {
-  BrowserRouter, Route,Routes,Link } from 'react-router-dom';
+  BrowserRouter as Router, Route,Routes,Link, useRoutes,  } from 'react-router-dom';
 import Home from './Home';
 import MyAbout from './MyAbout';
 import MyHome from './MyHome';
 import Contact from './Contact';
 import Container from './Container';
 import MyPage from './MyPage';
+import WelHeader from './WelHeader';
+import WelFooter from './WelFooter';
+import WelLogin from './WelLogin';
+import MyHoc from './MyHoc';
+import  {AllPages} from './MyRoute';
+  
 
 function App() {
 
   const[lan,setlan] =useState("en");
+
+  const MyHocHome = MyHoc(MyHome);
+
+  const MyHocAbout = MyHoc(MyAbout);
+
+  const MyHocContact = MyHoc(Contact);
+
+ 
+  const dd = useRoutes(AllPages())
+
+
+
   
 
   return (
@@ -33,28 +51,30 @@ function App() {
 
       </LanguageContext.Provider> */}
 
+    
 
-      <BrowserRouter>
 
-      <MyPage></MyPage>
+      
 
-        <Link to="/">Home</Link>
-        <Link to="/myabout">MyAbout</Link>
-        <Link to="/contact">contact</Link>
 
-        <Routes>
+    
 
-        <Route path='/' element={<Container>  <MyHome/> </Container> }></Route>
-        <Route path='/myabout' element={<MyAbout/>}></Route>
-        <Route path='/contact' element={<Contact/>}></Route>
        
 
-        </Routes>
+        {/* <Routes>
 
+        <Route path='/' element={ <MyHocHome/> }></Route>
+        <Route path='/myabout' element={<MyHocAbout/>}></Route>
+        <Route path='/contact' element={<MyHocContact/>}></Route>
+        <Route path='/login' element={<WelLogin/>}></Route>
+       
 
+        </Routes> */}
 
-
-      </BrowserRouter>
+        {dd}
+        
+      
+     
 
 
 

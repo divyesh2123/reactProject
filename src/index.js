@@ -58,6 +58,7 @@ import * as Sentry from "@sentry/react";
 import {ErrorBoundary} from "react-error-boundary";
 import MyUserSaga from './MyUserSaga';
 import UserPost from './UserPost';
+import { BrowserRouter } from 'react-router-dom';
 
 Sentry.init({
   dsn: "https://99ae3baf2c954c4cbd4ea9162cb74854@o1196007.ingest.sentry.io/6319187",
@@ -70,9 +71,11 @@ Sentry.init({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
+    <App/>
+    </BrowserRouter>
 
-
-<ToastContainer/>
+{/* <ToastContainer/>
 
   <ErrorBoundary  fallbackRender =  {({error, resetErrorBoundary, componentStack}) => (
           <div>
@@ -85,23 +88,25 @@ root.render(
 
       
 
-      </ErrorBoundary> 
+      </ErrorBoundary>  */}
 
     
-    <Provider store={storeSlice}>
+
+    
+    {/* <Provider store={storeSlice}>
 
     <MyUserSaga/>
 
     <UserPost/>
 
-
-     
+    </Provider>
+      */}
 
       {/* <MyCounterSlice></MyCounterSlice> */}
       {/* <EcommerceRegistration></EcommerceRegistration> */}
 {/*   
        <MyCounterSaga></MyCounterSaga> */}
-    </Provider>
+    
 
      {/* <FormMyData formData={formData} />  */}
     {/* <Container>
