@@ -18,7 +18,9 @@ import WelFooter from './WelFooter';
 import WelLogin from './WelLogin';
 import MyHoc from './MyHoc';
 import  {AllPages} from './MyRoute';
-  
+import Navigration from './Navigration';
+import Invoice from './Invoice';
+import SentInvoices from './SentInvoices';
 
 function App() {
 
@@ -61,17 +63,23 @@ function App() {
 
        
 
-        {/* <Routes>
+        <Routes>
 
         <Route path='/' element={ <MyHocHome/> }></Route>
         <Route path='/myabout' element={<MyHocAbout/>}></Route>
         <Route path='/contact' element={<MyHocContact/>}></Route>
         <Route path='/login' element={<WelLogin/>}></Route>
+        <Route path="invoices" element={<Navigration />}>
+
+        <Route index  element={<Invoice />} />
+
+        <Route path="sent" element={<SentInvoices />} />
+      </Route>
        
 
-        </Routes> */}
+        </Routes> 
 
-        {dd}
+        {/* {dd} */}
         
       
      

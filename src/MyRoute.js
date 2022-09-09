@@ -25,7 +25,10 @@ const MyHocHome = MyHoc(MyHome);
 
   const MyHocContact = MyHoc(Contact);
 export const AllPages = () => {
-   
+ 
+
+ 
+
     let  routes = [
         {
           path: "/",
