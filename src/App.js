@@ -1,16 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 import Header from './Header';
 import LanguageContext from './context/LanguageContext';
-import { useState } from 'react';
+import { useState,Suspense } from 'react';
 import Mylevel4 from './Mylevel4';
 import SimpleReactFileUpload from './FileUpload';
 import {
   BrowserRouter as Router, Route,Routes,Link, useRoutes,  } from 'react-router-dom';
 import Home from './Home';
-import MyAbout from './MyAbout';
-import MyHome from './MyHome';
-import Contact from './Contact';
+
+
+
+
 import Container from './Container';
 import MyPage from './MyPage';
 import WelHeader from './WelHeader';
@@ -21,6 +23,9 @@ import  {AllPages} from './MyRoute';
 import Navigration from './Navigration';
 import Invoice from './Invoice';
 import SentInvoices from './SentInvoices';
+const MyHome = React.lazy(() => import("./MyHome"));
+const MyAbout =React.lazy(() => import("./MyHome"));
+const Contact =React.lazy(() => import("./Contact"));
 
 function App() {
 
@@ -62,7 +67,7 @@ function App() {
     
 
        
-
+<Suspense fallback={<div>Loading...</div>}>
         <Routes>
 
         <Route path='/' element={ <MyHocHome/> }></Route>
@@ -82,7 +87,7 @@ function App() {
         {/* {dd} */}
         
       
-     
+     </Suspense>
 
 
 

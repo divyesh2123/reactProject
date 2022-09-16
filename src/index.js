@@ -51,7 +51,7 @@ import MyUser from './MyUser';
 import MyTestReducer from './MyTestReducer';
 import MyTestReducer1 from './MyTestReducer1';
 import MyCounterSlice from './MyCounterSlice';
-
+import LifeData from './LifeData';
 import BuggyCounter from './BuggyCounter';
 import MyCounterSaga from './MyCounterSaga';
 import * as Sentry from "@sentry/react";
@@ -59,6 +59,10 @@ import {ErrorBoundary} from "react-error-boundary";
 import MyUserSaga from './MyUserSaga';
 import UserPost from './UserPost';
 import { BrowserRouter } from 'react-router-dom';
+import TestPure from './TestPure';
+import MyTestData from './MyTestData';
+
+import TestDataType from './TestDataType';
 
 Sentry.init({
   dsn: "https://99ae3baf2c954c4cbd4ea9162cb74854@o1196007.ingest.sentry.io/6319187",
@@ -72,6 +76,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    {/* <LifeData count="6"/> */}
+    {/* <TestPure/> */}
+    {/* <MyTestData  /> */}
+    {/* <MyTestDataClass myTest="1"></MyTestDataClass> */}
+    {/* <TestDataType   ></TestDataType> */}
+
     <App/>
     </BrowserRouter>
 
